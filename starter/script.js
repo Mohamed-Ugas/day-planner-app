@@ -26,3 +26,21 @@ for (let i = 0; i < textAreas.length; i++) {
     }
   }
 
+var saveButton = $(".saveBtn");
+
+// is an event handler, when one of the "saveBtn" elements is clicked, the function inside the curly braces will be executed. 'this' refers to the specific button that was clicked. In this context, this represents the current save button that triggered the click event. The siblings() method returns all sibling elements of the selected element, Sibling elements are elements that share the same parent.
+
+saveButton.on("click", function() {
+    var timeBlock = $(this).siblings(".description").attr("id");
+    var valueTextArea = $(this).siblings(".description").val()
+    console.log(timeBlock, valueTextArea);
+    localStorage.setItem(timeBlock, valueTextArea);
+    
+})
+
+// loop goes through each time block from 9 AM to 5 PM (represented by numbers from 9 to 17), one by one.
+for (let i = 9; i < 18; i++){
+    // s selecting a specific HTML element on the page based on its ID.
+    // .val() is a method provided by jQuery to access the value of an input element
+    $(`#${i}`).val(localStorage.getItem(i));
+}
