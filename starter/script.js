@@ -42,5 +42,6 @@ saveButton.on("click", function() {
 for (let i = 9; i < 18; i++){
     // s selecting a specific HTML element on the page based on its ID.
     // .val() is a method provided by jQuery to access the value of an input element
+    // backticks and ${} help you create strings with placeholders
     $(`#${i}`).val(localStorage.getItem(i));
 }
